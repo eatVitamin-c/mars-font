@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>火星文字体转换</title>
+		<script src="./myajax.js"></script>
+		<script src="./jquery-3.4.1.js"></script>
+		<style>
+			html,body{
+				width:100%;
+				height:100%;
+				margin:0;
+				padding:0;
+			}
+			body{
+				background-color: #e3e0f2;
+			}
+			.foot{
+				width:50%;
+				margin:0 auto;
+				margin-top:3.125rem;
+			}
+			.lay{
+				width:50%;
+				
+				margin:0 auto;
+				border:1px solid #aaa5c6;
+				border-radius:10px;
+				margin-top:6.25rem;
+				background-image:url("./1.jpg");
+				background-size: 100% auto;
+				background-repeat:no-repeat;
+				background-color: #aaa5c6;
+				
+				box-shadow: inset -10px -3px 60px 10px #aaa5c6;
+			}
+			.logo{
+				font-size:3rem;
+				font-weight: border;
+				letter-spacing:0.5rem ;
+				padding:1.25rem;
+				color:white;
+				text-shadow:5px 3px 10px black;
+			}
+			.mid{
+				padding:1rem;
+			}
+			.input-font{
+				margin-bottom:1rem;
+				font-size:1.2rem;
+				color:white;
+			}
+			.text{
+				width:32.2rem;
+				height:10rem;
+			}
+			.fam,.fon,.mars,.empty{
+				width:7rem;
+				height:2.5rem;
+				font-size:1rem;
+				background-color:white;
+				border-radius:0.625rem;
+				border:0px ;
+				box-shadow:5px 5px 5px #DFDFE1;
+				margin-right:1.25rem;
+			}
+			.show{
+				opacity:0;
+			}
+			/* .fam,.fon,.mars:c .*{
+				opacity:1;
+			} */
+			.show-input,.show-res{
+				color:white;
+				margin:1.25rem;
+			}
+			.content{
+				margin:1.25rem;
+				/* text-shadow:5px 5px 2px white; */
+				/* color:white; */
+				width:35rem;
+				background-color:white;
+				padding:0.625rem;
+			}
+			.foot{
+				background-color:white;
+				border-radius: 1.25rem 1.25rem  0rem 0rem;
+			}
+			.foot-one{
+				/* border:1px solid red; */
+				height:3.125rem;
+				line-height: 3.125rem;
+				font-size: 1.2rem;
+				letter-spacing:0.3rem ;
+				padding-left:1.25rem;
+				border-radius: 1.25rem 1.25rem  0rem 0rem;
+				background-color:#aaa5c6;
+			}
+			.foot-two{
+				/* border:1px solid red; */
+				/* border-radius: 1.25rem; */
+				line-height: 1.4rem;
+				padding:1.25rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="lay">
+		<head>
+			<div class="logo">火星文转换</div>
+		</head>
+		<main class="main">
+			<div class="mid">
+				<form action="#" id="submit">
+					<div class="input-font">请输入您要转换的文字：</div>
+					<!-- <input type="text" name="text" placeholder="例:今天天气真好" id="text" value=""> -->
+					<textarea name="text" placeholder="例:今天天气真好" class="text"  id="text" value=""></textarea>
+					<div>
+					<input id="fam" class="fam" type="submit" value="转换成简体">
+					<input id="fon" class="fon" type="submit" value="转换成繁体">
+					<input id="mars" class="mars" type="submit" value="转化成火星文">
+					<input id="empty" class="empty" type="submit" value="清空">
+					</div>
+				</form>
+			</div>
+			<!-- <div class="show-input">您输入的文字：</div>
+			<div id="type" class="type"></div> -->
+			<div class="show" id="show">
+			<div class="show-res">转换后的文字:</div>
+			<div id="content" class="content"></div>
+			</div>
+			
+		</main>
+		
+		
+		</div>
+		<div class="foot">
+			<div class="foot-one">火星文豆知识</div>
+			<p class="foot-two">火星文由符号、繁体字、日文、韩文、冷僻字或汉字拆分后的部分等非正规化文字符号组合而成。乍看像是乱码或打错的字，用法也不同于汉字那么规范，从字面上根本无法了解。其实，“火星文”几年前就作为一种游戏用语在泡泡堂流行，接着又通过QQ资料及聊天快速散播，成为许多年轻人的共用语言。据考证，“火星文”起源于我国台湾地区。一些上网族最初为了打字方便，用注音文替代一些常用文字在网上交流，达到了快速打字兼可理解内容的效果。很快，一些台湾网友觉得这种文字另类醒目，便把这种输入方式发扬光大。随着《劲舞团》等网游在大陆的流行，这一潮流随着网游等渠道进入大陆，一部分网友开始延续这种独特的文字，并自创了适合简体中文发挥的输入方式，比如“劳エ”(老公)、“侽喷叐”(男朋友)、“蒶ロ耐·”（很可爱）“伱傃谁”（你是谁）。当使用人群和新生词组形成一定规模后，出现了一些热衷软件开发的网络高手制作出“火星文”专用软件，在网上流行的有“大黑鱼”、“我爱火星文”等软件。转换软件的出现使得“火星文”具备了密码功能，它成了一个群体保护隐私的方法。在受众中，这年轻的群体成了火星文的追捧者和传播者。有些“火星汉字”只能在《康熙字典》或《辞海》才能查到，一般的新华字典都查不到。中国现在部分的“90后”，因为凸显个性而使用。火星文，字面可解作火星人用的文字。随著网际网路的普及，网友（尤其是年轻网友）开始大量使用以同音字、音近字、特殊符号来表音的文字。由于这种文字与日常生活中使用的文字相比有明显的不同并且相当奇异，故被称为火星文。</p>
+		</div>
+		<script>
+		/* 	_.jsonp("https://api.jisuapi.com/fontconvert/convert", {
+				appkey: "278a689557ee39a4",
+				content: "今天天气挺好的",
+				type: "2h"
+
+			}, "haha", function(d, e) {
+				console.log(d);
+			});
+ */
+			var type;
+			var content;
+			var rcontent;
+			
+			
+			//表单
+			var submit = document.querySelector("#submit");
+			
+			//简体按钮
+			$("#fam").click(function(e){
+				e.preventDefault();
+				var res = _.formSerializeToJson(submit);
+				famfont(res.text);
+			})
+			
+			function famfont(submit) {
+				_.jsonp("https://api.jisuapi.com/fontconvert/convert", {
+					appkey: "278a689557ee39a4",
+					content:submit,
+					type: "2s"
+			
+				}, "haha", function(d, e) {
+					console.log(d);
+					transform(d.result.content, d.result.rcontent);
+				});
+			}
+			//繁体按钮
+			$("#fon").click(function(e){
+				e.preventDefault();
+				var res = _.formSerializeToJson(submit);
+				fonfont(res.text);
+			})
+			
+			function fonfont(submit) {
+				_.jsonp("https://api.jisuapi.com/fontconvert/convert", {
+					appkey: "278a689557ee39a4",
+					content:submit,
+					type: "2t"
+			
+				}, "haha", function(d, e) {
+					console.log(d);
+					transform(d.result.content, d.result.rcontent);
+				});
+			}
+			//火星文按钮
+			var mars = document.querySelector("#mars");
+			mars.addEventListener("click",function(e) {
+				//取消事件
+				e.preventDefault();
+				var res = _.formSerializeToJson(submit);
+				//console.log(res);
+				//console.log(res.text);
+				marsfont(res.text);
+
+			});
+
+
+
+
+			function marsfont(submit) {
+				_.jsonp("https://api.jisuapi.com/fontconvert/convert", {
+					appkey: "278a689557ee39a4",
+					content:submit,
+					type: "2h"
+
+				}, "haha", function(d, e) {
+					console.log(d);
+					transform(d.result.content, d.result.rcontent);
+				});
+			}
+			
+			
+			
+			//var one = document.querySelector("#text");
+			//展示
+			function transform(type, content, rcontent) {
+
+				if (document.querySelector("#artiContainer")) {
+					$("#artiContainer").remove();
+				}
+				$("#type").text(type);
+				$("#content").text(content);
+			
+				$("#rcontent").text(rcontent);
+				
+			}
+			
+			//点击显示
+			$("input").click(function(){
+				$("#show").css("opacity","1");
+			})
+			
+			
+			//写个清空按钮
+			
+			//var empty = document.getElementById("empty");
+			$(document).ready(function(e){
+				$("#empty").click(function(){
+					//清空文本框
+					$("#text").val("");
+					//清空显示的文字
+					$("#content").text(" ");
+					//清空样式
+					$("#show").css("opacity","0");
+					
+				});
+			});
+			
+			
+			
+		</script>
+	</body>
+</html>
